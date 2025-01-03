@@ -3,7 +3,13 @@
 - 2인 프로젝트
 
 ## 목차
+[개요](#개요)
 
+[데이터 설명](#데이터-설명)
+
+[분석 내용](#분석-내용)
+
+[회고 및 개선점](#회고-및-개선점)
 
 ## 개요
 - 주제
@@ -20,6 +26,9 @@
   - 인사이트 도출
   - 기획서 및 보고서 작성
 
+<div align="right">
+  <a href="#목차">목차로 이동</a>
+</div>
 
 ## 데이터 설명
 - 캐글 대회 'Binary Classification with a Bank Churn Dataset'에서 제공하는 데이터를 활용했으며 ABC Multistate bank의 데이터이다
@@ -51,6 +60,9 @@
 |pandas|AutoML|seaborn|
 ||pycaret||
 
+<div align="right">
+  <a href="#목차">목차로 이동</a>
+</div>
 
 ## 분석 내용
 ✔️**EDA**
@@ -127,12 +139,16 @@
   - 삭제했던 Geography, Gender 피처를 추가하여 OneHot Encoding한 후 LGBM 모델링 진행
 - 3차 모델링
   - 파생 변수 생성 후 LGBM 모델링 진행
-  - 파생변수 생성 후 상관계수 확인
-     <img src="https://github.com/user-attachments/assets/11609e0b-05f3-48f6-827b-ec45087f2f71" width="70%" height="70%">
+  - 상관계수 확인
+    
+    <img src="https://github.com/user-attachments/assets/11609e0b-05f3-48f6-827b-ec45087f2f71" width="70%" height="70%">
+
 - 4차 모델링
   - Feature Importance가 낮은 피처들을 삭제 후 LGBM 모델링 진행
   - 캐글 점수가 약간 오르고 AUC값은 조금 떨어졌지만 그 차이가 적다
-    <img src="https://github.com/user-attachments/assets/5eb8b36e-e770-4f8a-b744-33be035cbbbc" withd="70%" height="70%">
+    
+    <img src="https://github.com/user-attachments/assets/5eb8b36e-e770-4f8a-b744-33be035cbbbc" withd="50%" height="50%">
+
 - 5차 모델링
   - AutoML결과 AUC가 제일 높았던 GBC 모델을 사용하여 모델링 진행
   - 캐글점수가 올랐으며 AUC값은 변동이 없다
@@ -140,6 +156,7 @@
 
 - 최종 캐글 점수: 0.89191 (목표점수였던 0.89642는 달성하지 못하였다)
 - 최종 AUC: 0.8920
+- 최적 하이퍼파라미터 `'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 200`
 - 하이퍼 파라미터 튜닝 결과 LGBM보다 GBC를 사용한 경우에 캐글 점수와 AUC값이 더 높게 나왔다
 - 두 모델 사이에 Accuracy와  AUC값에 차이가 있었던 원인을 GBC가 오버피팅 관리가 더 잘 되었다고 분석하였다
 
@@ -149,6 +166,9 @@
 3. 20대 후반~30대 고객 맞춤 상품 개발
 4. 40대 이상 고객 맞춤 상품 개발
 
+<div align="right">
+  <a href="#목차">목차로 이동</a>
+</div>
 
 ## 회고 및 개선점
 ### 회고
